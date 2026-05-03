@@ -2,7 +2,7 @@
 
 import { Layout, Typography, Row, Col, Card, Divider, Space } from 'antd'
 import Link from 'next/link'
-import { SafetyOutlined, EyeOutlined, TrophyOutlined, CheckCircleOutlined, WarningOutlined, LockOutlined, CloudOutlined, RocketOutlined, UserOutlined } from '@ant-design/icons'
+import { SafetyOutlined, EyeOutlined, TrophyOutlined, CheckCircleOutlined, WarningOutlined, LockOutlined, CloudOutlined, RocketOutlined, UserOutlined, BankOutlined } from '@ant-design/icons'
 import { useState, useEffect } from 'react'
 import BankingModal from '@/components/BankingModal'
 
@@ -534,6 +534,105 @@ export default function Treasury() {
                   { label: 'Payment Processed', value: '1,000 coins' },
                   { label: 'Placement Duration', value: '30 days' },
                   { label: 'Label Status', value: '[PAID] visible' }
+                ]}
+              />
+            </Col>
+          </Row>
+        </section>
+
+        {/* Subscriber Dividend Bond */}
+        <section style={{
+          padding: isMobile ? '60px 24px' : '120px 48px',
+          borderBottom: '1px solid #1f1f1f',
+          background: '#000000'
+        }}>
+          <Row justify="center" gutter={[48, 48]}>
+            <Col xs={24} lg={12}>
+              <div style={{ marginBottom: 32 }}>
+                <Space align="center" style={{ marginBottom: 16 }}>
+                  <RocketOutlined style={{ fontSize: 24, color: '#595959' }} />
+                  <Text style={{ fontSize: 12, color: '#595959', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600 }}>
+                    SUBSCRIBER DIVIDEND BOND
+                  </Text>
+                </Space>
+                <Title level={2} style={{ color: '#ffffff', marginBottom: 8, fontSize: isMobile ? 28 : 36, fontWeight: 600 }}>
+                  Your connection pays you. Like a bond.
+                </Title>
+                <Text style={{ color: '#8c8c8c', fontSize: 16, fontStyle: 'italic' }}>
+                  "A registered income-bearing instrument funded by the network's revenue residual."
+                </Text>
+              </div>
+
+              <Card bordered style={{ background: '#0a0a0a', borderColor: '#1f1f1f', borderRadius: 12, marginBottom: 24 }} bodyStyle={{ padding: 32 }}>
+                <Title level={4} style={{ color: '#ffffff', marginBottom: 16, fontSize: 20, fontWeight: 600 }}>
+                  How it works
+                </Title>
+                <Paragraph style={{ color: '#8c8c8c', fontSize: 15, lineHeight: 1.8, marginBottom: 16 }}>
+                  Every subscriber's access circuit carries traffic that produces a measurable share of the network's CDN brokerage, gas-fee, and advertising revenue. The Subscriber Dividend Bond converts that ordinary residual entitlement into a registered income-bearing security.
+                </Paragraph>
+                <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+                  <div>
+                    <Text style={{ color: '#d9d9d9', fontSize: 15, fontWeight: 500 }}>Bankruptcy-Remote Issuer</Text>
+                    <Paragraph style={{ color: '#8c8c8c', fontSize: 14, marginTop: 4, marginBottom: 0 }}>
+                      Old West Solutions SPV — a Delaware Statutory Trust wholly owned by the parent — issues the instrument. The SPV's separateness covenants ensure a parent-level financial reverse does not impair holder rights.
+                    </Paragraph>
+                  </div>
+                  <div>
+                    <Text style={{ color: '#d9d9d9', fontSize: 15, fontWeight: 500 }}>Chartered Trustee & Paying Agent</Text>
+                    <Paragraph style={{ color: '#8c8c8c', fontSize: 14, marginTop: 4, marginBottom: 0 }}>
+                      A TIA-qualified chartered trust company serves as indenture trustee and transfer agent. A regulated bank holds the reserve account. Coinbase Prime serves as qualified digital-asset custodian. Circle Wallet provides recipient-side managed wallet infrastructure.
+                    </Paragraph>
+                  </div>
+                  <div>
+                    <Text style={{ color: '#d9d9d9', fontSize: 15, fontWeight: 500 }}>Floating-Rate Coupon</Text>
+                    <Paragraph style={{ color: '#8c8c8c', fontSize: 14, marginTop: 4, marginBottom: 0 }}>
+                      Coupon = aggregate residual pool contributions (net of expenses) ÷ aggregate principal outstanding, annualized. Paid quarterly by ACH or monthly in USDC to your registered Circle Wallet, at your election.
+                    </Paragraph>
+                  </div>
+                  <div>
+                    <Text style={{ color: '#d9d9d9', fontSize: 15, fontWeight: 500 }}>SEC-Registered Offering</Text>
+                    <Paragraph style={{ color: '#8c8c8c', fontSize: 14, marginTop: 4, marginBottom: 0 }}>
+                      Initial offering structured under Regulation A+ Tier 2 (up to $75M / 12 months). Subsequent offerings under registered S-1. Transfer restrictions enforced by the registered transfer agent. KYC discharged through Oldwest identity governance.
+                    </Paragraph>
+                  </div>
+                </Space>
+              </Card>
+
+              <Card bordered style={{ background: '#0a0a0a', borderColor: '#1f1f1f', borderRadius: 12 }} bodyStyle={{ padding: 32 }}>
+                <Title level={4} style={{ color: '#ffffff', marginBottom: 16, fontSize: 20, fontWeight: 600 }}>
+                  Residential example — 1 Gbps symmetric
+                </Title>
+                <Space direction="vertical" size="small" style={{ width: '100%' }}>
+                  {[
+                    { label: 'Monthly CDN Residual (avg.)', value: '$7.20' },
+                    { label: 'Annual Residual Entitlement', value: '$86.40' },
+                    { label: 'Instrument Principal', value: '$1,000.00' },
+                    { label: 'Effective Coupon Rate', value: '8.64%', highlight: true },
+                    { label: 'Payment Method', value: 'USDC · Circle Wallet / ACH' },
+                  ].map((row, i) => (
+                    <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 0', borderBottom: i < 4 ? '1px solid #1f1f1f' : 'none' }}>
+                      <Text style={{ color: '#8c8c8c', fontSize: 13 }}>{row.label}</Text>
+                      <Text style={{ color: row.highlight ? '#52c41a' : '#d9d9d9', fontSize: 13, fontWeight: row.highlight ? 700 : 500 }}>{row.value}</Text>
+                    </div>
+                  ))}
+                </Space>
+              </Card>
+            </Col>
+
+            <Col xs={24} lg={12}>
+              <BankingModal
+                title="Subscriber Dividend Bond"
+                subtitle="OWS-OLDWESTNET-MASTER-001"
+                status="Instrument Active · Reg A+ Tier 2"
+                statusColor="#27c93f"
+                items={[
+                  { label: 'Issuer', value: 'Old West Solutions SPV (DST)' },
+                  { label: 'Indenture Trustee', value: 'Chartered Trust Co. (TIA-qualified)' },
+                  { label: 'Paying Agent', value: 'Regulated Bank · USDC / ACH' },
+                  { label: 'Digital Custodian', value: 'Coinbase Prime' },
+                  { label: 'Wallet Infrastructure', value: 'Circle Wallet Platform' },
+                  { label: 'Transfer Agent', value: 'SEC-Registered' },
+                  { label: 'Settlement Chain', value: 'Solana · Merkle-root committed' },
                 ]}
               />
             </Col>
